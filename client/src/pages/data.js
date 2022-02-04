@@ -14,7 +14,7 @@ export default [
   "CoolWallet S",
   "Infinito",
   "Kava",
-  "Metamusk",
+  "Metamask",
   "Midas Wallet",
   "MyEther",
   "ONTO",

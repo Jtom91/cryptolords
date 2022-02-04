@@ -2,9 +2,10 @@ nav {
   width: 100%;
   margin-bottom: 30px;
   box-shadow: 0 3px 3px gray;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  background-color: white;
 }
 
 nav > ul {
@@ -14,7 +15,7 @@ nav > ul {
   list-style:  none;
   color: #1a8dda;
   padding: 0 20px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 nav > ul > li {

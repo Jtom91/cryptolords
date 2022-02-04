@@ -6,7 +6,7 @@
 
 .App {
   min-height: 100vh;
-  padding: 80px 20px 0px 20px;
+  padding: 130px 15px 0px 15px;
   position: relative;
 }
 
@@ -14,7 +14,11 @@ h2 {
   text-align: center;
   color: rgba(0, 0, 0, 0.6);
   margin-bottom: 15px;
-  font-size: 22px;
+  font-size: 27px;
+}
+
+h2 ~ p {
+  font-size: 14px;
 }
 
 .gallery a img {
@@ -29,9 +33,9 @@ h2 {
 }
 
 .list > li {
-  font-size: 12px;
+  font-size: 14px;
   cursor: pointer;
-  color:rgba(0, 0, 0, 0.6)
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .form {
@@ -61,7 +65,7 @@ textarea:focus {
 .info {
   text-align: start;
   margin-top: 3px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 button {
@@ -84,8 +88,11 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
-  top: -80px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .missing > img {
@@ -101,7 +108,7 @@ footer {
 /* for ipad */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .App {
-    padding: 0 80px;
+    padding: 120px 20px 0px 20px;
   }
 
   nav > ul {
