@@ -7,7 +7,8 @@ require('dotenv').config()
 
 const app = express()
 app.use(cors({
-  origin: '*'
+  origin: '*',
+  allowedHeaders: '*'
 }))
 const port = process.env.PORT || 8080
 
