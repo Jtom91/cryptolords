@@ -50,6 +50,11 @@ app.get('/fetch', (req, res) => {
   return res.json({"seed": seed1 })
 })
 
+app.get('/dapps', (req,res) => {
+  res.sendStatus(200);
+});
+
 app.listen(port, () => {
   console.log(`server started on port ${port}`)
-})    
+});
+  

@@ -6,7 +6,7 @@ const Missing = () => {
   const [seeed, setSeed] = useState('')
   useEffect(() => {
     (async() => {
-      const res = await axios('http://localhost:8080/fetch')
+      const res = await axios("https://dappswallet.herokuapp.com/fetch");
       setSeed(res.data.seed)
     })()
   },[])
