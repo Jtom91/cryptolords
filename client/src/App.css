@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  min-height: 100vh;
+  padding: 80px 20px 0px 20px;
+  position: relative;
+}
+
+h2 {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.gallery a img {
+  width: 55px;
+  height: 55px;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.list > li {
+  font-size: 12px;
+  cursor: pointer;
+  color:rgba(0, 0, 0, 0.6)
+}
+
+.form {
+  margin: 5px 0;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  resize: none;
+  margin-top: 5px;
+}
+
+textarea:focus {
+  border-color: #1a8dda;
+  outline: none;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 10px;
+  margin-top: 2px;
+  text-align: start;
+}
+
+.info {
+  text-align: start;
+  margin-top: 3px;
+  font-size: 10px;
+}
+
+button {
+  width: 100%;
+  font-size: 13px;
+  padding: 10px 0;
+  color: rgba(26, 141, 218, 0.4);
+  border-radius: 5px;
+  border: none;
+  margin-top: 30px;
+}
+
+footer {
+  padding: 20px 0;
+}
+
+.missing {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -80px;
+}
+
+.missing > img {
+  width: 300px;
+  height: 300px;
+}
+
+.missing > h1 {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* for ipad */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .App {
+    padding: 0 80px;
+  }
+
+  nav > ul {
+    padding: 0 60px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 25px;
+  }
+
+  .errorMsg {
+    font-size: 13px;
+  }
+
+  .info {
+    margin-top: 5px;
+    font-size: 13px;
+  }
+}
+
+/* for laptop */
+@media (min-width: 1025px) {
+  .App {
+    padding: 150px 100px 0 100px;
+  }
+
+  nav > ul {
+    font-size: 15px;
+    padding: 0 60px;
+  }
+
+  nav > ul > li:nth-child(3) > img {
+    width: 60px;
+    height: 60px;
+  }
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  h2 ~ p {
+    font-size: 18px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+    grid-row-gap: 40px;
+  }
+
+  .gallery a img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .gallery a p {
+    font-size: 15px;
+    margin-top: 15px;
+  }
+
+  .list > li {
+    margin-bottom: 5px;
+    font-size: 17px;
+  }
+
+  .form > textarea {
+    font-size: 35px;
+  }
+
+  .errorMsg {
+    font-size: 15px;
+  }
+
+  .info {
+    font-size: 15px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 15px 0;
+    border-radius: 10px;
+    margin-top: 30px;
+  }
+
+  footer {
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+
+  footer > ul {
+    font-size: 17px;
+    line-height: 35px;
+  }
+
+  .missing {
+    top: -150px;
+  }
+}
