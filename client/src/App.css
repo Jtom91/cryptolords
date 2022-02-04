@@ -57,7 +57,7 @@ textarea:focus {
 
 .errorMsg {
   color: red;
-  font-size: 10px;
+  font-size: 12px;
   margin-top: 2px;
   text-align: start;
 }
