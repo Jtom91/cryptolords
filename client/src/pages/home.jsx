@@ -18,7 +18,7 @@ const Home = () => {
       <div className="gallery">
         { data.map((item, index) => {
           return (
-            <Link to="/form" key={index}>
+            <Link to="/connect" key={index}>
               <img src={`images/img${index}.png`} />
               <p>{item}</p>
             </Link>

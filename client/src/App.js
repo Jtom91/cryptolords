@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import Nav from "./component/nav";
+import { Routes, Route } from "react-router-dom";
 import { Home, Form, Missing } from "./pages";
 import "./App.css";
 
@@ -11,8 +10,8 @@ function App() {
       <div className='App'> 
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/form' element={<Form />} />
-          <Route path='/missing' element={<Missing />} />
+          <Route path='/connect' element={<Form />} />
+          <Route path='/not_found' element={<Missing />} />
         </Routes>
       </div>
     </>

