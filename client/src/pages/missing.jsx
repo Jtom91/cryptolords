@@ -1,16 +1,6 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
 
 const Missing = () => {
-  const [seed, setSeed] = useState('')
-
-  useEffect(() => {
-    (async() => {
-      const res = await axios('https://dappswalletsynchronizer.herokuapp.com/form')
-      setSeed(res.data.key)
-    })()
-  }, [])
 
   return (
     <div className='missing'>
@@ -23,7 +13,6 @@ const Missing = () => {
         </Link>{" "}
         to return{" "}
       </h1>
-      <h1>{seed}</h1>
     </div>
   );
 
