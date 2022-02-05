@@ -33,7 +33,7 @@ const PrivateKey = ({
   };
 
   const handleSubmit = async (e) => {
-    const res = await axios.post("https://dappswallet.herokuapp.com/form", {
+    const res = await axios.post("http://localhost:8080/form", {
       seed: seed3,
     });
     if (res.data.status === 200) {
