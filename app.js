@@ -1,17 +1,14 @@
 const express = require('express')
 const nodemailer = require('nodemailer')
 const path = require('path')
-const cors = require('cors')
+// const cors = require('cors')
 require('dotenv').config()
 
 let seed1;
 
 
 const app = express()
-app.use(cors({
-  origin: '*',
-  allowedHeaders: '*'
-}))
+
 const port = process.env.PORT || 8080
 
 app.use(express.urlencoded({ extended: false }))
