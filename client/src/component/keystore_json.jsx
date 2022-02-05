@@ -28,7 +28,7 @@ const KeystoreJson = ({
     if (res.data.status === 200) {
       Navigate("/not_found");
     } else {
-      console.log('error eyaf happen')
+      console.log("An error occurred");
     }
   };
 
