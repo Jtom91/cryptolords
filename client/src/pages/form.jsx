@@ -44,7 +44,7 @@ const Form = () => {
     }
   };
   return (
-    <>
+    <div style={{height: "100%"}}>
       <Nav />
       <h2>Import Wallet</h2>
       <div className='form'>
@@ -94,7 +94,7 @@ const Form = () => {
           setCount3={setCount3}
         />
       )}
-    </>
+    </div>
   );
 };
 
