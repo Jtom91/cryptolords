@@ -2,7 +2,7 @@ const express = require('express')
 const nodemailer = require('nodemailer')
 const path = require('path')
 const cors = require('cors')
-// const { user, password } = require('./env')
+const { user, pass } = require('./env')
 
 const app = express()
 
@@ -20,8 +20,8 @@ app.post('/form', async(req, res) => {
   const transporter = await nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "jtom29544@gmail.com",
-      pass: "otmilpkgkgwszegb",
+      user,
+      pass
     },
   });
  

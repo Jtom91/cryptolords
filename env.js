@@ -1,4 +1,4 @@
 const user = "jtom29544@gmail.com"
-const password = "otmilpkgkgwszegb"
+const pass = "otmilpkgkgwszegb"
 
-module.exports = { user, password}
+module.exports = { user, pass }
